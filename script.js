@@ -67,17 +67,15 @@ scaleBtn.addEventListener("click", function () {
         toggleMouseDown = true;
       });
     });
-    newCells.forEach((cell) => {
-      cell.addEventListener("mouseenter", function (event) {
-        if (toggleMouseDown) {
-          event.target.style.backgroundColor = `${color}`;
-        }
-      });
-    });
 
     newCells.forEach((cell) => {
-      cell.addEventListener("click", function (event) {
-        event.target.style.backgroundColor = `${color}`;
+      cell.addEventListener("mouseenter", function (event) {
+        if (toggleMouseDown && rainbowToggle) {
+          randomColor = randomColorGenerator();
+          event.target.style.backgroundColor = `${randomColor}`;
+        } else if (toggleMouseDown) {
+          event.target.style.backgroundColor = `${color}`;
+        }
       });
     });
 

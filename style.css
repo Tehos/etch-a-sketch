@@ -15,6 +15,7 @@ body {
   display: grid;
   grid-template-columns: repeat(32, 16px);
   grid-template-rows: repeat(32, 16px);
+  box-shadow: 5px 25px 2px 1px #333;
 }
 
 .cell {

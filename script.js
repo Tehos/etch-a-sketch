@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const gridCells = document.querySelectorAll(".cell");
 
 function createCell() {
   const newDiv = document.createElement("div");

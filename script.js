@@ -95,3 +95,10 @@ colorBtn.addEventListener("input", function () {
   color = colorBtn.value;
   console.log(color);
 });
+
+// RESET BUTTON
+resetBtn.addEventListener("click", function () {
+  gridCells.forEach((cell) => {
+    cell.setAttribute("style", "backgroundColor: #efecd8");
+  });
+});

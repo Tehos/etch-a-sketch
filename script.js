@@ -1,9 +1,12 @@
 const container = document.querySelector(".container");
 const scaleBtn = document.querySelector(".scale");
+const colorBtn = document.querySelector("input");
+const resetBtn = document.querySelector(".reset");
 
 // CREATE INITIAL PAD
 
 let userInput = 32;
+let color = "#333";
 
 function createCells(cells) {
   container.setAttribute(
@@ -33,14 +36,14 @@ gridCells.forEach((cell) => {
 gridCells.forEach((cell) => {
   cell.addEventListener("mouseenter", function (event) {
     if (toggleMouseDown) {
-      event.target.style.backgroundColor = "#333";
+      event.target.style.backgroundColor = `${color}`;
     }
   });
 });
 
 gridCells.forEach((cell) => {
   cell.addEventListener("click", function (event) {
-    event.target.style.backgroundColor = "#333";
+    event.target.style.backgroundColor = `${color}`;
   });
 });
 
@@ -49,7 +52,7 @@ window.addEventListener("mouseup", function () {
   console.log(toggleMouseDown);
 });
 
-// SCALE THE PAD
+// SCALE BUTTON
 
 scaleBtn.addEventListener("click", function () {
   let userInput = prompt("Choose size of the sketch pad between 16 and 100:");
@@ -68,14 +71,14 @@ scaleBtn.addEventListener("click", function () {
     newCells.forEach((cell) => {
       cell.addEventListener("mouseenter", function (event) {
         if (toggleMouseDown) {
-          event.target.style.backgroundColor = "#333";
+          event.target.style.backgroundColor = `${color}`;
         }
       });
     });
 
     newCells.forEach((cell) => {
       cell.addEventListener("click", function (event) {
-        event.target.style.backgroundColor = "#333";
+        event.target.style.backgroundColor = `${color}`;
       });
     });
 
@@ -84,4 +87,11 @@ scaleBtn.addEventListener("click", function () {
       console.log(toggleMouseDown);
     });
   }
+});
+
+// CHOOSE COLOR BUTTON
+
+colorBtn.addEventListener("input", function () {
+  color = colorBtn.value;
+  console.log(color);
 });

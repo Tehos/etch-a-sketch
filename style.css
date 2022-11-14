@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  font-family: "Press Start 2P", cursive;
+}
+
+body {
+  background-color: rgb(239, 236, 216);
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(32, 16px);
+  grid-template-rows: repeat(32, 16px);
+}
+
+.cell {
+  background-color: #fff;
+}

@@ -3,11 +3,14 @@ const scaleBtn = document.querySelector(".scale");
 const colorBtn = document.querySelector("input");
 const resetBtn = document.querySelector(".reset");
 const eraseBtn = document.querySelector(".erase");
+const rainbowBtn = document.querySelector(".rainbow");
 
 // CREATE INITIAL PAD
 
 let userInput = 32;
 let color = "#333";
+let randomColor = "";
+console.log("randomColor", randomColor);
 
 function createCells(cells) {
   container.setAttribute(
@@ -31,26 +34,22 @@ let toggleMouseDown = false;
 gridCells.forEach((cell) => {
   cell.addEventListener("mousedown", function () {
     toggleMouseDown = true;
-    console.log(toggleMouseDown);
   });
 });
+
 gridCells.forEach((cell) => {
   cell.addEventListener("mouseenter", function (event) {
-    if (toggleMouseDown) {
+    if (toggleMouseDown && rainbowToggle) {
+      randomColor = randomColorGenerator();
+      event.target.style.backgroundColor = `${randomColor}`;
+    } else if (toggleMouseDown) {
       event.target.style.backgroundColor = `${color}`;
     }
   });
 });
 
-gridCells.forEach((cell) => {
-  cell.addEventListener("click", function (event) {
-    event.target.style.backgroundColor = `${color}`;
-  });
-});
-
 window.addEventListener("mouseup", function () {
   toggleMouseDown = false;
-  console.log(toggleMouseDown);
 });
 
 // SCALE BUTTON
@@ -66,7 +65,6 @@ scaleBtn.addEventListener("click", function () {
     newCells.forEach((cell) => {
       cell.addEventListener("mousedown", function () {
         toggleMouseDown = true;
-        console.log(toggleMouseDown);
       });
     });
     newCells.forEach((cell) => {
@@ -85,7 +83,6 @@ scaleBtn.addEventListener("click", function () {
 
     window.addEventListener("mouseup", function () {
       toggleMouseDown = false;
-      console.log(toggleMouseDown);
     });
   }
 });
@@ -109,3 +106,22 @@ resetBtn.addEventListener("click", function () {
 eraseBtn.addEventListener("click", function () {
   color = "#fff";
 });
+
+// RAINBOW BUTTON
+let rainbowToggle = false;
+rainbowBtn.addEventListener("click", function () {
+  if (!rainbowToggle) {
+    rainbowToggle = true;
+  } else {
+    rainbowToggle = false;
+  }
+  console.log(rainbowToggle);
+});
+
+function randomValueColor() {
+  return Math.floor(Math.random() * (256 - 0 + 1)) + 1;
+}
+
+function randomColorGenerator() {
+  return `rgb(${randomValueColor()}, ${randomValueColor()}, ${randomValueColor()})`;
+}

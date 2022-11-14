@@ -2,6 +2,7 @@ const container = document.querySelector(".container");
 const scaleBtn = document.querySelector(".scale");
 const colorBtn = document.querySelector("input");
 const resetBtn = document.querySelector(".reset");
+const eraseBtn = document.querySelector(".erase");
 
 // CREATE INITIAL PAD
 
@@ -91,14 +92,20 @@ scaleBtn.addEventListener("click", function () {
 
 // CHOOSE COLOR BUTTON
 
-colorBtn.addEventListener("input", function () {
+function changeColor() {
   color = colorBtn.value;
-  console.log(color);
-});
+}
+
+colorBtn.addEventListener("input", changeColor);
 
 // RESET BUTTON
 resetBtn.addEventListener("click", function () {
   gridCells.forEach((cell) => {
-    cell.setAttribute("style", "backgroundColor: #efecd8");
+    cell.setAttribute("style", "backgroundColor: #fff");
   });
+});
+
+// ERASE BUTTON
+eraseBtn.addEventListener("click", function () {
+  color = "#fff";
 });

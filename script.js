@@ -90,6 +90,8 @@ scaleBtn.addEventListener("click", function () {
 
 function changeColor() {
   color = colorBtn.value;
+  rainbowToggle = false;
+  switchRainbow.textContent = "Off";
 }
 
 colorBtn.addEventListener("input", changeColor);

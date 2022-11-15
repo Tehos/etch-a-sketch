@@ -5,6 +5,7 @@
 
 body {
   background-color: #efecd8;
+  color: #333;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,4 +28,17 @@ body {
 
 .cell {
   background-color: #fff;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.switch-rainbow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

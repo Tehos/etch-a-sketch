@@ -4,6 +4,7 @@ const colorBtn = document.querySelector("input");
 const resetBtn = document.querySelector(".reset");
 const eraseBtn = document.querySelector(".erase");
 const rainbowBtn = document.querySelector(".rainbow");
+const switchRainbow = document.querySelector(".switch");
 
 // CREATE INITIAL PAD
 
@@ -103,6 +104,7 @@ resetBtn.addEventListener("click", function () {
 // ERASE BUTTON
 eraseBtn.addEventListener("click", function () {
   rainbowToggle = false;
+  switchRainbow.textContent = "Off";
   color = "#fff";
 });
 
@@ -111,8 +113,10 @@ let rainbowToggle = false;
 rainbowBtn.addEventListener("click", function () {
   if (!rainbowToggle) {
     rainbowToggle = true;
+    switchRainbow.textContent = "On";
   } else {
     rainbowToggle = false;
+    switchRainbow.textContent = "Off";
   }
   console.log(rainbowToggle);
 });

@@ -102,6 +102,7 @@ resetBtn.addEventListener("click", function () {
 
 // ERASE BUTTON
 eraseBtn.addEventListener("click", function () {
+  rainbowToggle = false;
   color = "#fff";
 });
 

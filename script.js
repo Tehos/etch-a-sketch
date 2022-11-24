@@ -79,7 +79,11 @@ scaleBtn.addEventListener("click", function () {
         }
       });
     });
-
+    resetBtn.addEventListener("click", function () {
+      newCells.forEach((cell) => {
+        cell.setAttribute("style", "backgroundColor: #fff");
+      });
+    });
     window.addEventListener("mouseup", function () {
       toggleMouseDown = false;
     });
